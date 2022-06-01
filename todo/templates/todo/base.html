@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>BENZ-AUTH</title>
+    <style></style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'home' %}">BENZ-AUTH</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'createTodo' %}">Add Blog</a></li>
+          <li><a href="{% url 'currentTodos' %}">My Blogs</a></li>
+          <li><a href="{% url 'completedTodos' %}">Completed</a></li>
+          {% endif %}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li>
+            <a href="#"
+              ><span class="glyphicon"></span> Welcome!
+              <b>{{user.username}}</b></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="glyphicon glyphicon-user"></span> Profile</a
+            >
+          </li>
+          <li>
+            <form action="{% url 'logoutUser' %}" method="POST">
+              {% csrf_token %}
+              <!-- <a href="#"
+                ><span class="glyphicon glyphicon-log-in" type="submit"></span
+                >Logout</a
+              > -->
+
+              <button type="submit" style="margin-top: 12px; margin-left: 17px">
+                <span class="glyphicon glyphicon-log-in" type="submit"></span
+                >Logout
+              </button>
+            </form>
+          </li>
+          {% else %}
+          <li>
+            <a href="{% url 'signupUser' %}"
+              ><span class="glyphicon glyphicon-user"></span> SignUp</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'loginUser' %}"
+              ><span class="glyphicon glyphicon-user"></span> Login</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <footer
+      style="
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+      "
+    >
+      <p class="text-center">
+        Copyright &copy;
+        <a
+          href="https://www.linkedin.com/in/prajwal-benedict-a-048511186/"
+          target="_blank"
+          >BENZ-AUTH 2022</a
+        >
+      </p>
+    </footer>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
