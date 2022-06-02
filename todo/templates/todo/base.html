@@ -28,7 +28,6 @@
           <a class="navbar-brand" href="{% url 'home' %}">BENZ-AUTH</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'createTodo' %}">Add Blog</a></li>
           <li><a href="{% url 'currentTodos' %}">My Blogs</a></li>
@@ -78,8 +77,7 @@
       </div>
     </nav>
 
-    {% block content %} {% endblock %}
-
+    {% block content %} {% endblock %} {% comment %}
     <footer
       style="
         position: fixed;
@@ -98,6 +96,7 @@
         >
       </p>
     </footer>
+    {% endcomment %}
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

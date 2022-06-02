@@ -10,7 +10,7 @@
     {% if error %}
     <div class="alert alert-danger" role="alert">{{ error }}</div>
     {% endif %}
-    <form method="POST">
+    <form method="POST" style="margin-bottom: 70px">
       {% csrf_token %}
       <div class="form-group">
         <label for="title">Title</label>
@@ -69,6 +69,7 @@
   action="{% url 'completeTodo' todo.id %}"
 >
   {% csrf_token %}
+
   <button id="complete" type="submit">Complete</button>
 </form>
 {% endif %}

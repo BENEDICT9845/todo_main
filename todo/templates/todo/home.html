@@ -1,26 +1,30 @@
 {% extends 'todo/base.html' %} {% block content %}
 
-<header class="w3-panel w3-center w3-opacity" style="padding: 128px 16px">
+<header class="w3-panel w3-center w3-opacity" style="padding: 15px 16px">
   <h1>TO-DO APP</h1>
   <h1 class="w3-xlarge"></h1>
   <p id="header-paragraph">
     To-do application with User Registration, Login, Search and complete CRUD
     functionality <br />
-    Push/Retrive your To-Do data securly from the database.<br /><br />From:
+    Push/Retrive your To-Do data securly from the database.<br />
+    <div class="d-grid gap-2">
+  <a href="{% url 'signupUser' %}" >
+      <button type="button" class="btn btn-primary btn-lg" style="margin-bottom: 80px">Get Started</button>
+   </a> 
+</divGet Started ></button
+    ><br />From:
     <a href="https://www.linkedin.com/in/prajwal-benedict-a-048511186/"
       ><b> Prajwal Benedict A</b></a
     >
   </p>
-  <div class="w3-padding-32">
+  <div class="w3-padding-10">
     <div class="w3-bar w3-border">
-      <a href="#" class="w3-bar-item w3-button">Home</a>
       <a
         href="https://benedict9845.github.io/portfolio/"
         target="_blank"
         class="w3-bar-item w3-button w3-light-grey"
-        >Portfolio</a
+        >My Portfolio</a
       >
-      <a href="#" class="w3-bar-item w3-button">Contact</a>
     </div>
   </div>
 </header>
